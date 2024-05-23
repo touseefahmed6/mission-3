@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Person1 from "../../Images/Person1.png";
 
 import Person2 from "../../Images/Person2.png";

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import AboutMe from "./AboutMe";
 import Card from "./Card";
 import { FaLaptopCode, FaMobileAlt, FaCamera, FaLaptop } from "react-icons/fa";

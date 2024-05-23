@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 export default function Card({ title, description, icon: Icon }) {
   return (
     <div className={`col-md-6 mb-3 mb-md-0 border-0 `}>

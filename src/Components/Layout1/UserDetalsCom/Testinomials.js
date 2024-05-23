@@ -1,33 +1,12 @@
-import React from "react";
-import Person1 from "../Images/Person1.png";
-import Person2 from "../Images/Person2.png";
+import React, { useContext } from "react";
+import Person1 from "../../Images/Person1.png";
 
+import Person2 from "../../Images/Person2.png";
 export default function Testimonials() {
   return (
-    <div className=" mt-3 bg-white">
+    <div className={`mt-3 `}>
       <style>
         {`
-          @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
-
-          .roboto-serif-bold {
-            font-family: "Roboto Serif", serif;
-            font-optical-sizing: auto;
-            font-weight: 900;
-            font-style: normal;
-            font-size: 25px;
-            font-variation-settings:
-              "wdth" 100,
-              "GRAD" 0;
-          }
-          
-          .noto-sans-tc-regular {
-            font-family: "Noto Sans TC", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 500;
-            font-style: normal;
-            font-size: 14px;
-          }
-          
           .testimonial-image {
             border-radius: 50%;
             width: 80px;
@@ -39,26 +18,31 @@ export default function Testimonials() {
           .testimonial-card {
             display: flex;
             align-items: center;
-            margin-bottom: 20px; /* Adjust spacing between cards */
+            margin-bottom: 20px; 
           }
         `}
       </style>
-      <div className="card-body ">
-        <h5 className="card-title fw-bold text-start roboto-serif-bold">
+      <div className={`card-body  `}>
+        <h5
+          className={`card-title fw-bold text-start `}
+          style={{
+            fontFamily: "'PT Sans', sans-serif",
+            letterSpacing: "2px",
+          }}
+        >
           Testimonials
         </h5>
         <div
+          className=""
           style={{
-            width: "80px",
-            height: "4px",
+            height: "0.5px",
             backgroundColor: "var(--bs-primary)",
-            marginBottom: "15px",
-            fontWeight: "bold",
+            marginBottom: "10px",
           }}
         ></div>
-        <div className="row">
-          <div className="col-md-6">
-            <div className="testimonial-card mt-3">
+        <div className={`row `}>
+          <div className={`col-md-6 `}>
+            <div className={`testimonial-card mt-3`}>
               <img
                 className="testimonial-image mb-5"
                 src={Person1}

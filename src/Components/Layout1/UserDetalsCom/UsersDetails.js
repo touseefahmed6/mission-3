@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import AboutMe from "./AboutMe";
 import Card from "./Card";
 import { FaLaptopCode, FaMobileAlt, FaCamera, FaLaptop } from "react-icons/fa";
 import Testimonials from "./Testinomials";
+import Experiences from "./Experience";
+import Projects from "./Projects";
+import Education from "./Education";
 
 export default function UsersDetails() {
   const card1 = {
@@ -30,12 +33,12 @@ export default function UsersDetails() {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-11 my-3 bg-light">
+    <div className={`container border  rounded my-3 `}>
+      <div className={`row`}>
+        <div className={`col-12`}>
           <AboutMe />
           <h4
-            className="mt-4 text-start"
+            className={`mt-4 text-start`}
             style={{ fontFamily: "Verdana", fontWeight: "500" }}
           >
             What I'm Doing
@@ -65,6 +68,9 @@ export default function UsersDetails() {
             />
           </div>
           <Testimonials />
+          <Education />
+          <Experiences />
+          <Projects />
         </div>
       </div>
     </div>

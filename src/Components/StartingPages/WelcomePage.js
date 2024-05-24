@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import { LayoutContext } from "../Context/LayoutContext";
 
 const WelcomePage = () => {
   const navigate = useNavigate();
+  const { isDarkMode } = useContext(LayoutContext);
+
+  const cardStyle = {
+    backgroundColor: isDarkMode ? "#333" : "#fff",
+    color: isDarkMode ? "#e0e0e0" : "#333",
+  };
+
+  const buttonPrimaryStyle = {
+    backgroundColor: isDarkMode ? "#007bff" : "#0d6efd",
+    borderColor: isDarkMode ? "#007bff" : "#0d6efd",
+    color: isDarkMode ? "#e0e0e0" : "#fff",
+  };
+
+  const buttonSecondaryStyle = {
+    backgroundColor: isDarkMode ? "#6c757d" : "#6c757d",
+    borderColor: isDarkMode ? "#6c757d" : "#6c757d",
+    color: isDarkMode ? "#e0e0e0" : "#fff",
+  };
 
   const handleOnClick = () => {
     navigate("/CompleteCv");
@@ -15,7 +33,7 @@ const WelcomePage = () => {
 
   return (
     <div className="container d-flex align-items-center justify-content-center min-vh-100">
-      <div className="card text-center shadow-lg p-4 bg-light">
+      <div className="card text-center shadow-lg p-4" style={cardStyle}>
         <div className="card-body">
           <h1 className="card-title mb-4 text-primary">Welcome, Touseef</h1>
           <p className="card-text mb-4">
@@ -23,10 +41,18 @@ const WelcomePage = () => {
             through your profile.
           </p>
           <div className="d-flex justify-content-center">
-            <button className="btn btn-primary me-3" onClick={handleOnClick}>
+            <button
+              className="btn me-3"
+              style={buttonPrimaryStyle}
+              onClick={handleOnClick}
+            >
               Check Your CV
             </button>
-            <button className="btn btn-secondary" onClick={handleLogout}>
+            <button
+              className="btn"
+              style={buttonSecondaryStyle}
+              onClick={handleLogout}
+            >
               Logout
             </button>
           </div>

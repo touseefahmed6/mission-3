@@ -16,13 +16,18 @@ export default function Projects() {
         ></div>
         <div className="mb-3">
           <div className="d-flex justify-content-between align-items-center">
-            <h6 className="text-start mb-0">E-commerce Website</h6>
+            <h6 className="text-start mb-2">E-commerce Website</h6>
           </div>
           <p className="text-start">
             <li style={{ fontFamily: "'Arial', sans-serif" }}>
-              Developed e-commerce website frontend using React.js, CSS, and
-              Bootstrap. Crafted an appealing, user-friendly UI for an enhanced
-              shopping experience.
+              Implemented responsive design elements to ensure compatibility
+              across various devices.
+            </li>
+          </p>
+          <p className="text-start">
+            <li style={{ fontFamily: "'Arial', sans-serif" }}>
+              Emphasized usability and aesthetics to drive customer engagement
+              and satisfaction.
             </li>
           </p>
         </div>

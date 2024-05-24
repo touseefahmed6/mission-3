@@ -61,7 +61,7 @@ export default function Testimonials() {
             </div>
           </div>
           <div className="col-md-6">
-            <div className="testimonial-card mt-3">
+            <div className="testimonial-card mt-4">
               <img
                 className="testimonial-image mb-5"
                 src={Person2}
@@ -72,7 +72,7 @@ export default function Testimonials() {
                   "Working with Touseef Ahmed was a pleasure. They are highly
                   skilled and dedicated to delivering quality results."
                 </p>
-                <p className="fw-bold text-start noto-sans-tc-regular">
+                <p className="fw-bold text-start noto-sans-tc-regular mt-4">
                   - Jane Smith
                 </p>
               </div>

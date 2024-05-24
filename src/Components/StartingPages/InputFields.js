@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import { LayoutContext } from "../Context/LayoutContext";
 
 export default function InputFields() {
+  const { isDarkMode } = useContext(LayoutContext);
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [count, setCount] = useState(0);
@@ -16,7 +17,7 @@ export default function InputFields() {
     };
   }, [count]);
 
-  const handleOnSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (username === "" || password === "") {
       alert("Password or username is missing.");
@@ -26,17 +27,42 @@ export default function InputFields() {
     setCount(count + 1);
   };
 
+  const cardStyle = {
+    backgroundColor: isDarkMode ? "#333" : "#fff",
+    color: isDarkMode ? "#e0e0e0" : "#333",
+  };
+
+  const formLabelStyle = {
+    color: isDarkMode ? "#e0e0e0" : "#333",
+  };
+
+  const formCheckLabelStyle = {
+    color: isDarkMode ? "#e0e0e0" : "#333",
+  };
+
+  const forgotPasswordLinkStyle = {
+    color: isDarkMode ? "#007bff" : "#0d6efd",
+  };
+
+  const createAccountLinkStyle = {
+    color: isDarkMode ? "#007bff" : "#0d6efd",
+  };
+
   return (
     <div className="container d-flex align-items-center justify-content-center min-vh-100">
-      <div className="col-12 col-md-6 p-5 shadow-lg rounded bg-light">
+      <div className="col-12 col-md-6 p-5 shadow-lg rounded" style={cardStyle}>
         <h2 className="mb-4 text-center text-primary">Login</h2>
         <p className="text-center text-muted">
           Please Enter your username and password!
         </p>
 
-        <form onSubmit={handleOnSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="username" className="form-label">
+            <label
+              htmlFor="username"
+              className="form-label"
+              style={formLabelStyle}
+            >
               Username
             </label>
             <input
@@ -46,11 +72,16 @@ export default function InputFields() {
               value={username}
               placeholder="Enter Username"
               onChange={(e) => setUsername(e.target.value)}
+              style={cardStyle}
             />
           </div>
 
           <div className="mb-3">
-            <label htmlFor="password" className="form-label">
+            <label
+              htmlFor="password"
+              className="form-label"
+              style={formLabelStyle}
+            >
               Password
             </label>
             <input
@@ -60,6 +91,7 @@ export default function InputFields() {
               value={password}
               placeholder="Enter Password"
               onChange={(e) => setPassword(e.target.value)}
+              style={cardStyle}
             />
           </div>
 
@@ -71,12 +103,21 @@ export default function InputFields() {
                 id="rememberMe"
                 checked={rememberMe}
                 onChange={(e) => setRememberMe(e.target.checked)}
+                style={cardStyle}
               />
-              <label className="form-check-label" htmlFor="rememberMe">
+              <label
+                className="form-check-label"
+                htmlFor="rememberMe"
+                style={formCheckLabelStyle}
+              >
                 Remember Password
               </label>
             </div>
-            <a href="/forgot-password" className="text-primary">
+            <a
+              href="/forgot-password"
+              className="text-primary"
+              style={forgotPasswordLinkStyle}
+            >
               Forgot password?
             </a>
           </div>
@@ -87,7 +128,11 @@ export default function InputFields() {
 
           <p className="text-center">
             Don't have an account?{" "}
-            <a href="/create-account" className="text-primary">
+            <a
+              href="/create-account"
+              className="text-primary"
+              style={createAccountLinkStyle}
+            >
               Create account
             </a>
           </p>

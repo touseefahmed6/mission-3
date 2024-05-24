@@ -24,7 +24,7 @@ export default function Experiences() {
         <div className="mb-3">
           <div className="d-flex justify-content-between align-items-center">
             <h6 className="text-start mb-2">FullStack Developer | AtomPoint</h6>
-            <span className="text-muted mb-2">Jan 2021 - Dec 2021</span>
+            <span className="text-muted mb-2">May 2021 - Present</span>
           </div>
           <p
             className="text-start"

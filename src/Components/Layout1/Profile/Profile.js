@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import ProfileCard from "./ProfileCard";
 import ProfileInfo from "./ProfileInfo";
 import Skills from "../UserDetalsCom/Skills";
-import AboutMe from "../UserDetalsCom/AboutMe";
 import Education from "../UserDetalsCom/Education";
 import { LayoutContext } from "../../Context/LayoutContext";
 
@@ -10,14 +9,14 @@ const Profile = () => {
   const { selectedLayout, isDarkMode } = useContext(LayoutContext);
 
   const profileStyle = {
-    backgroundColor: isDarkMode ? "#333" : "#f0f0f0",
+    backgroundColor: isDarkMode ? "#22303C" : "#f0f0f0",
     border: isDarkMode ? "1px solid #ddd" : "1px solid #ccc",
     padding: "0rem",
   };
 
   return (
-    <div className="">
-      <style jsx>
+    <div className=" shadow-sm">
+      <style>
         {`
           .responsive-card {
             margin: 2rem auto;
@@ -41,12 +40,10 @@ const Profile = () => {
         `}
       </style>
       <div
-        className={`mt-5 container card text-center border-top-0 responsive-card`}
+        className={`mt-5  card text-center border-0 responsive-card`}
         style={profileStyle}
       >
         <ProfileCard />
-
-        {selectedLayout === 2 && <AboutMe />}
         {selectedLayout === 3 && <Education />}
         {selectedLayout === 1 && <Education />}
         <ProfileInfo />

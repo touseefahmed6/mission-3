@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { FaUser } from "react-icons/fa";
 import { LayoutContext } from "../../Context/LayoutContext";
 
 export default function AboutMe() {
@@ -9,10 +8,10 @@ export default function AboutMe() {
     backgroundColor:
       selectedLayout === 2
         ? isDarkMode
-          ? "#333"
-          : "#f0f0f0"
+          ? "#192734"
+          : "#fff"
         : isDarkMode
-        ? "#333"
+        ? "#192734"
         : "#fff",
     color:
       selectedLayout === 2
@@ -22,64 +21,52 @@ export default function AboutMe() {
         : isDarkMode
         ? "#e0e0e0"
         : "#333",
-    fontFamily: selectedLayout !== 2 && "'PT Sans', sans-serif",
+
     letterSpacing: selectedLayout !== 2 && "2px",
   };
 
-  const titleElement =
-    selectedLayout === 2 ? (
-      <h6
-        className="card-title text-uppercase text-start"
-        style={{
-          letterSpacing: "3px",
-          marginBottom: "10px",
-          textTransform: "uppercase",
-          color: isDarkMode ? "#e0e0e0" : "#000",
-        }}
-      >
-        <FaUser
-          className="text-primary"
-          style={{ fontSize: "1.4rem", marginRight: "0.5rem" }}
-        />
-        About Me
-      </h6>
-    ) : (
-      <h5
-        className="card-title fw-bold text-start"
-        style={{
-          fontFamily: "'PT Sans', sans-serif",
-          letterSpacing: "2px",
-          color: isDarkMode ? "#e0e0e0" : "#333",
-        }}
-      >
-        About Me
-      </h5>
-    );
+  const titleElement = (
+    <h4
+      className="card-title poppins-bold"
+      style={{
+        color: isDarkMode ? "#e0e0e0" : "#374151",
+        letterSpacing: "1px",
+      }}
+    >
+      ABOUT ME
+    </h4>
+  );
 
   return (
-    <div className="card mb-3 border-0">
-      <div className="card-body" style={cardBodyStyle}>
+    <div
+      className="card  border-0 p-2"
+      style={{ backgroundColor: isDarkMode ? "#192734" : "#fff" }}
+    >
+      <div className="card-body rounded" style={cardBodyStyle}>
         {titleElement}
         <div
-          className="mb-3"
+          className="bg-primary"
           style={{
             height: "0.5px",
-            backgroundColor: isDarkMode ? "#007bff" : "var(--bs-primary)",
             marginBottom: "10px",
           }}
         ></div>
         <p
-          className="card-text text-start"
+          className="card-text poppins-regular"
           style={{
             letterSpacing: "0px",
-            color: isDarkMode ? "#e0e0e0" : "#333",
+            color: isDarkMode ? "#e0e0e0" : "#6b7287",
           }}
         >
-          Full Stack Developer passionate about creating seamless, scalable
+          FullStack Developer passionate about creating seamless, scalable
           applications. Skilled in frontend and backend development, I enjoy
-          turning ideas into user-friendly solutions. Constantly learning and
-          adapting, I thrive in collaborative environments where innovation
-          drives success.
+          turning ideas into user-friendly solutions. With expertise in a wide
+          range of programming languages and frameworks, I excel at building
+          robust, high-performance systems. Constantly learning and adapting, I
+          thrive in collaborative environments where innovation drives success.
+          I am dedicated to writing clean, maintainable code and have a keen eye
+          for detail. My strong problem-solving skills enable me to tackle
+          complex challenges efficiently.
         </p>
       </div>
     </div>

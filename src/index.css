@@ -1,16 +1,20 @@
+body {
+  overflow-x: hidden;
+}
+
 body.dark-mode {
-  background-color: #1e1e1e;
+  background-color: #15202B;
   color: #e0e0e0;
 }
 
 body.light-mode {
-  background-color: #fff;
+  background-color: #F5F7F8;
   color: #333;
 }
 
 body.dark-mode .card,
 body.dark-mode .component {
-  background-color: #1e1e1e;
+  background-color: #161618;
   color: #e0e0e0;
 }
 
@@ -19,4 +23,40 @@ body.light-mode .component {
   background-color: #fff;
   color: #333;
 
+}
+
+.poppins-thin {
+  font-weight: 100;
+}
+
+.poppins-extralight {
+  font-weight: 200;
+}
+
+.poppins-light {
+  font-weight: 300;
+}
+
+.poppins-regular {
+  font-weight: 400;
+}
+
+.poppins-medium {
+  font-weight: 500;
+}
+
+.poppins-semibold {
+  font-weight: 600;
+}
+
+.poppins-bold {
+  font-weight: 700;
+}
+
+.poppins-extrabold {
+  font-weight: 800;
+}
+
+.poppins-black {
+  font-weight: 900;
 }

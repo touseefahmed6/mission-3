@@ -20,38 +20,32 @@ export default function Skills() {
   };
 
   const skillContainerStyle = {
-    backgroundColor: isDarkMode ? "#333" : "#f0f0f0",
-    color: isDarkMode ? "#e0e0e0" : "#333",
+    backgroundColor: isDarkMode ? "#22303C" : "#f0f0f0",
+    color: isDarkMode ? "#e0e0e0" : " #374151",
   };
-
-  const thinLineStyle = {
-    backgroundColor: isDarkMode ? "#007bff" : "var(--bs-primary)",
-  };
-
   return (
-    <div className="mt-2" style={skillContainerStyle}>
+    <div className="container-fluid mt-4" style={skillContainerStyle}>
       <h6
         className="text-start mx-3 d-flex align-items-center"
-        style={{ letterSpacing: "2px" }}
+        style={{ letterSpacing: "1px" }}
       >
         <FaCode
-          className="text-primary"
+          className="text-primary "
           style={{ fontSize: "1.4rem", marginRight: "0.5rem" }}
         />
-        <span>SKILLS</span>
+        <span className="poppins-bold">SKILLS</span>
       </h6>
       <div
-        className="mx-3"
+        className="mx-3 bg-primary"
         style={{
           height: "0.5px",
-          backgroundColor: thinLineStyle.backgroundColor,
           marginBottom: "10px",
         }}
       ></div>
-      <div className="card border-0 p-4 shadow-sm " style={skillContainerStyle}>
+      <div className="card border-0 p-3 " style={skillContainerStyle}>
         {Object.entries(skills).map(([skill, value]) => (
           <div className="mb-3" key={skill}>
-            <div className="d-flex align-items-center mb-2">
+            <div className="d-flex align-items-center mb-2 poppins-medium">
               {skill === "react" && (
                 <FaReact className="me-2" style={{ color: "#61DBFB" }} />
               )}
@@ -76,13 +70,13 @@ export default function Skills() {
           </div>
         ))}
 
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center mt-2">
           <a
             href="/"
-            className="btn btn-primary rounded border-0 mb-3"
+            className="btn btn-primary rounded border-0 mb-3 poppins-bold"
             style={{ maxWidth: "200px" }}
           >
-            <FaDownload className="me-2" />
+            <FaDownload className="me-2 " />
             Download CV
           </a>
         </div>

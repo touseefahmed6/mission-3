@@ -6,9 +6,7 @@ const ToggleSwitch = () => {
 
   return (
     <div
-      className={`form-check form-switch position-absolute end-0 m-2 ${
-        window.innerWidth <= 576 ? "mt-5" : "mt-2"
-      }`}
+      className={`form-check form-switch position-absolute end-0 m-2`}
       style={{ zIndex: 999 }}
     >
       <input

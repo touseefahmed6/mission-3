@@ -28,16 +28,16 @@ export default function InputFields() {
   };
 
   const cardStyle = {
-    backgroundColor: isDarkMode ? "#333" : "#fff",
-    color: isDarkMode ? "#e0e0e0" : "#333",
+    backgroundColor: isDarkMode ? "#192734" : "#fff",
+    color: isDarkMode ? "#FFFFFF" : "#333",
   };
 
   const formLabelStyle = {
-    color: isDarkMode ? "#e0e0e0" : "#333",
+    color: isDarkMode ? "#e0e0e0" : "#374151",
   };
 
   const formCheckLabelStyle = {
-    color: isDarkMode ? "#e0e0e0" : "#333",
+    color: isDarkMode ? "#e0e0e0" : "#374151",
   };
 
   const forgotPasswordLinkStyle = {
@@ -47,12 +47,15 @@ export default function InputFields() {
   const createAccountLinkStyle = {
     color: isDarkMode ? "#007bff" : "#0d6efd",
   };
+  const loginBelowText = {
+    color: isDarkMode ? "#e0e0e0" : "#374151",
+  };
 
   return (
     <div className="container d-flex align-items-center justify-content-center min-vh-100">
       <div className="col-12 col-md-6 p-5 shadow-lg rounded" style={cardStyle}>
-        <h2 className="mb-4 text-center text-primary">Login</h2>
-        <p className="text-center text-muted">
+        <h2 className="mb-4 text-center text-primary poppins-bold">Login</h2>
+        <p className="text-center poppins-regular" style={loginBelowText}>
           Please Enter your username and password!
         </p>
 
@@ -60,7 +63,7 @@ export default function InputFields() {
           <div className="mb-3">
             <label
               htmlFor="username"
-              className="form-label"
+              className="form-label poppins-medium"
               style={formLabelStyle}
             >
               Username
@@ -79,7 +82,7 @@ export default function InputFields() {
           <div className="mb-3">
             <label
               htmlFor="password"
-              className="form-label"
+              className="form-label poppins-medium"
               style={formLabelStyle}
             >
               Password

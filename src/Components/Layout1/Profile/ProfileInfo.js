@@ -13,7 +13,7 @@ export default function ProfileInfo() {
   const { isDarkMode } = useContext(LayoutContext);
 
   const infoContainerStyle = {
-    backgroundColor: isDarkMode ? "#333" : "#f0f0f0",
+    backgroundColor: isDarkMode ? "#22303C" : "#f0f0f0",
     color: isDarkMode ? "#e0e0e0" : "#333",
   };
 
@@ -24,28 +24,28 @@ export default function ProfileInfo() {
   };
 
   const listItemStyle = {
-    backgroundColor: isDarkMode ? "#333" : "#f0f0f0",
+    backgroundColor: isDarkMode ? "#22303C" : "#f0f0f0",
     color: isDarkMode ? "#e0e0e0" : "#333",
   };
 
   return (
-    <div className="container-fluid" style={infoContainerStyle}>
+    <div className="container-fluid mt-3  " style={infoContainerStyle}>
       <h6
         className="text-start mx-3 d-flex align-items-center"
-        style={{ letterSpacing: "2px" }}
+        style={{ letterSpacing: "1px" }}
       >
         <FaInfoCircle
-          className="text-primary mt-2"
+          className="text-primary mt-0"
           style={{ fontSize: "1.3rem", marginRight: "0.5rem" }}
         />
-        <span className="mt-2">DETAILS</span>
+        <span className="mt-0 poppins-bold">DETAILS</span>
       </h6>
       <div
         className="mx-3 border-top border-primary"
         style={infoBorderStyle}
       ></div>
 
-      <ul className="list-group list-group-flush mt-3 border-0 mx-3">
+      <ul className="list-group list-group-flush mt-3 border-0 mx-1">
         <li
           className="list-group-item border-0 d-flex align-items-center"
           style={listItemStyle}
@@ -54,7 +54,9 @@ export default function ProfileInfo() {
             className="text-primary me-3"
             style={{ fontSize: "1rem" }}
           />
-          <span className="text-wrap text-truncate">April 03, 2004</span>
+          <span className="text-wrap text-truncate poppins-medium">
+            April 03, 2004
+          </span>
         </li>
         <li
           className="list-group-item border-0 d-flex align-items-center"
@@ -64,7 +66,9 @@ export default function ProfileInfo() {
             className="text-primary me-3"
             style={{ fontSize: "1rem" }}
           />
-          <span className="text-wrap text-truncate">Karachi, Pakistan</span>
+          <span className="text-wrap text-truncate poppins-medium">
+            Karachi, Pakistan
+          </span>
         </li>
         <li
           className="list-group-item border-0 d-flex align-items-center"
@@ -74,7 +78,9 @@ export default function ProfileInfo() {
             className="text-primary me-3 text-wrap text-truncate"
             style={{ fontSize: "1rem" }}
           />
-          <span className="text-wrap text-truncate">touseef@email.com</span>
+          <span className="text-wrap text-truncate poppins-medium">
+            touseef@email.com
+          </span>
         </li>
         <li
           className="list-group-item border-0 d-flex align-items-center"
@@ -84,14 +90,18 @@ export default function ProfileInfo() {
             className="text-primary me-3"
             style={{ fontSize: "1rem" }}
           />
-          <span className="text-wrap text-truncate">+92-3173098212</span>
+          <span className="text-wrap text-truncate poppins-medium">
+            +92-3173098212
+          </span>
         </li>
         <li
           className="list-group-item border-0 d-flex align-items-center"
           style={listItemStyle}
         >
           <FaSkype className="text-primary me-3" style={{ fontSize: "1rem" }} />
-          <span className="text-wrap text-truncate">@touseef_ahmed</span>
+          <span className="text-wrap text-truncate poppins-medium">
+            @touseef_ahmed
+          </span>
         </li>
       </ul>
     </div>

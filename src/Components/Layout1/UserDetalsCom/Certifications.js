@@ -14,7 +14,7 @@ export default function Experiences() {
           color: isDarkMode ? "#e0e0e0" : "#374151",
         }}
       >
-        EXPERIENCES
+        CERTIFICATIONS
       </h4>
       <div
         className="bg-primary"
@@ -29,17 +29,28 @@ export default function Experiences() {
           className="text-start mb-2 poppins-medium"
           style={{ color: isDarkMode ? "#e0e0e0" : "#374151" }}
         >
-          FullStack Developer | AtomPoint
+          <li>Programming with Javascript | Online course - Meta-Coursera</li>
         </h6>
-        <span className=" mb-2 poppins-regular">May 2021 - Present</span>
+        <span className=" mb-2 poppins-regular">2023</span>
       </div>
-      <p
-        className=" poppins-regular"
-        style={{ color: isDarkMode ? "#e0e0e0" : "#374151" }}
-      >
-        Developed scalable and responsive applications as a FullStack Developer
-        at AtomPoint, blending creativity with robust functionality.
-      </p>
+      <div className="d-flex justify-content-between align-items-center">
+        <h6
+          className="text-start mb-2 poppins-medium"
+          style={{ color: isDarkMode ? "#e0e0e0" : "#374151" }}
+        >
+          <li>Javascript Crash Course | Discount-Courses</li>
+        </h6>
+        <span className=" mb-2 poppins-regular">2023</span>
+      </div>
+      <div className="d-flex justify-content-between align-items-center">
+        <h6
+          className="text-start mb-2 poppins-medium"
+          style={{ color: isDarkMode ? "#e0e0e0" : "#374151" }}
+        >
+          <li>UI & UX For Beginners | Great Learning Academy</li>
+        </h6>
+        <span className=" mb-2 poppins-regular">2023</span>
+      </div>
     </div>
   );
 }

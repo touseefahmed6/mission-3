@@ -37,29 +37,28 @@ export default function ProfileCard() {
   const cardStyle = {
     width: "100%",
     minWidth: "18rem",
-    backgroundColor: isDarkMode ? "#444" : "#fff",
+    backgroundColor: isDarkMode ? "#192734" : "#fff",
     color: isDarkMode ? "#e0e0e0" : "#333",
-    border: isDarkMode ? "2px solid #ddd" : "1px solid #ddd",
   };
 
   const titleStyle = {
-    letterSpacing: "2px",
-    color: isDarkMode ? "#ffffff" : "#333",
+    letterSpacing: "1.5px",
+    color: isDarkMode ? "#ffffff" : "#374151",
   };
 
   const subtitleStyle = {
-    backgroundColor: isDarkMode ? "#666" : "#DDE6ED",
+    backgroundColor: isDarkMode ? "#22303C" : "#DDE6ED",
     fontSize: "13px",
-    letterSpacing: "2px",
+    letterSpacing: "1px",
     color: isDarkMode ? "#e0e0e0" : "#333",
   };
 
   return (
-    <div className="" style={{ margin: "0", marginLeft: "-1px" }}>
-      <div
-        className="card text-center border-bottom-0 rounded"
-        style={cardStyle}
-      >
+    <div
+      className="rounded shadow-sm"
+      style={{ margin: "0", marginLeft: "-1px" }}
+    >
+      <div className="card text-center border-0 rounded" style={cardStyle}>
         {selectedLayout === 3 ? (
           <div className={imageContainerClass} style={{ marginTop: "-35px" }}>
             <img
@@ -77,11 +76,14 @@ export default function ProfileCard() {
             style={imageStyle}
           />
         )}
-        <div className="card-body">
-          <h5 className="card-title" style={titleStyle}>
+        <div className="card-body rounded-0">
+          <h5 className="card-title poppins-semibold" style={titleStyle}>
             TOUSEEF <b>AHMED</b>
           </h5>
-          <p className="d-inline-block rounded px-2" style={subtitleStyle}>
+          <p
+            className="d-inline-block rounded shadow-sm px-2 poppins-medium"
+            style={subtitleStyle}
+          >
             FULLSTACK DEVELOPER
           </p>
           <div className="social-icons">

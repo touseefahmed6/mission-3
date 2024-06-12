@@ -3,7 +3,9 @@ import { LayoutContext } from "../../Context/LayoutContext";
 import { FaGraduationCap } from "react-icons/fa";
 
 export default function Education() {
-  const { selectedLayout, isDarkMode } = useContext(LayoutContext);
+  const { selectedLayout, isDarkMode, userData } = useContext(LayoutContext);
+  const { educationDetails } = userData;
+
   const cardStyle = {
     backgroundColor:
       (selectedLayout === 1 || selectedLayout === 3 || selectedLayout === 2) &&
@@ -15,6 +17,7 @@ export default function Education() {
     marginBottom: "0px",
     padding: "0px",
   };
+
   const educationHeadingStyle =
     selectedLayout === 1
       ? {
@@ -66,32 +69,47 @@ export default function Education() {
             }}
           ></div>
         )}
-        {selectedLayout === 1 || selectedLayout === 3 ? (
-          <div className="d-flex flex-column container mt-0">
-            <span
-              className=" mb-2 text-start"
-              style={{ color: isDarkMode ? "#FFF" : "#000" }}
-            >
-              Oct 2021 - June 2025
-            </span>
-            <div className="mb-2 text-start">
-              <strong>MAJU, Karachi</strong>
-            </div>
-            <span className="text-wrap mb-0 text-start">
-              Bachelor of Software Engineering
-            </span>
+
+        {educationDetails.map((education, index) => (
+          <div key={index}>
+            {selectedLayout === 1 || selectedLayout === 3 ? (
+              <div className="d-flex flex-column container mt-0">
+                <span
+                  className="mb-2 text-start"
+                  style={{ color: isDarkMode ? "#FFF" : "#000" }}
+                >
+                  {education.joiningMonth} {education.joiningYear} -{" "}
+                  {education.present
+                    ? "Present"
+                    : `${education.leavingMonth} ${education.leavingYear}`}
+                </span>
+                <div className="mb-2 text-start">
+                  <strong>
+                    {education.instituteName}, {education.location}
+                  </strong>
+                </div>
+                <span className="text-wrap mb-0 text-start">
+                  {education.degreeTitle}
+                </span>
+              </div>
+            ) : (
+              <div className="mb-3">
+                <div className="d-flex justify-content-between align-items-center">
+                  <h6 className="text-start mb-0">{education.degreeTitle}</h6>
+                  <span className="">
+                    {education.joiningMonth} {education.joiningYear} -{" "}
+                    {education.present
+                      ? "Present"
+                      : `${education.leavingMonth} ${education.leavingYear}`}
+                  </span>
+                </div>
+                <span className="">
+                  {education.instituteName}, {education.location}
+                </span>
+              </div>
+            )}
           </div>
-        ) : (
-          <div className="mb-3">
-            <div className="d-flex justify-content-between align-items-center">
-              <h6 className="text-start mb-0">
-                Bachelor of Software Engineering
-              </h6>
-              <span className="">Oct 2021 - June 2025</span>
-            </div>
-            <span className="">Mohammad Ali Jinnah University, Karachi</span>
-          </div>
-        )}
+        ))}
       </div>
     </div>
   );

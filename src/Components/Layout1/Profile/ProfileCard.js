@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import ProfileImage from "../../Images/Touseef.jpg";
 import { LayoutContext } from "../../Context/LayoutContext";
+import ProfileImage from "../../Images/Touseef.jpg";
 
 export default function ProfileCard() {
-  const { selectedLayout, isDarkMode } = useContext(LayoutContext);
+  const { selectedLayout, isDarkMode, userData } = useContext(LayoutContext);
+  const { personalDetails } = userData;
 
   let imageClass;
   let imageSize;
@@ -53,6 +54,10 @@ export default function ProfileCard() {
     color: isDarkMode ? "#e0e0e0" : "#333",
   };
 
+  const profileImage = personalDetails.profileImage
+    ? URL.createObjectURL(personalDetails.profileImage)
+    : ProfileImage;
+
   return (
     <div
       className="rounded shadow-sm"
@@ -62,7 +67,7 @@ export default function ProfileCard() {
         {selectedLayout === 3 ? (
           <div className={imageContainerClass} style={{ marginTop: "-35px" }}>
             <img
-              src={ProfileImage}
+              src={profileImage}
               className={imageClass}
               alt="Profile"
               style={imageStyle}
@@ -70,7 +75,7 @@ export default function ProfileCard() {
           </div>
         ) : (
           <img
-            src={ProfileImage}
+            src={profileImage}
             className={`card-img-top mx-auto ${imageClass}`}
             alt="Profile"
             style={imageStyle}
@@ -78,13 +83,14 @@ export default function ProfileCard() {
         )}
         <div className="card-body rounded-0">
           <h5 className="card-title poppins-semibold" style={titleStyle}>
-            TOUSEEF <b>AHMED</b>
+            {personalDetails.fName.toUpperCase()}{" "}
+            <b>{personalDetails.lName.toUpperCase()}</b>
           </h5>
           <p
             className="d-inline-block rounded shadow-sm px-2 poppins-medium"
             style={subtitleStyle}
           >
-            FULLSTACK DEVELOPER
+            {personalDetails.jobTitle.toUpperCase()}
           </p>
           <div className="social-icons">
             <i className="fab fa-facebook-f mx-2 text-primary"></i>

@@ -5,6 +5,25 @@ export const LayoutContext = createContext();
 export const LayoutProvider = ({ children }) => {
   const [selectedLayout, setSelectedLayout] = useState(1);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [userData, setUserData] = useState({
+    personalDetails: {
+      fName: "",
+      lName: "",
+      email: "",
+      jobTitle: "",
+      dob: "",
+      location: "",
+      contactNumber: "",
+      aboutMe: "",
+      skypeUsername: "",
+      profileImage: null,
+    },
+    educationDetails: [],
+    experienceDetails: [],
+    projects: [],
+    skills: [],
+    certifications: [],
+  });
 
   useEffect(() => {
     if (isDarkMode) {
@@ -20,6 +39,24 @@ export const LayoutProvider = ({ children }) => {
     setIsDarkMode((prevMode) => !prevMode);
   };
 
+  const addCertification = (certification) => {
+    setUserData((prevUserData) => ({
+      ...prevUserData,
+      certifications: [...prevUserData.certifications, certification],
+    }));
+  };
+
+  const removeCertification = (index) => {
+    setUserData((prevUserData) => {
+      const updatedCertifications = [...prevUserData.certifications];
+      updatedCertifications.splice(index, 1);
+      return {
+        ...prevUserData,
+        certifications: updatedCertifications,
+      };
+    });
+  };
+
   return (
     <LayoutContext.Provider
       value={{
@@ -27,6 +64,10 @@ export const LayoutProvider = ({ children }) => {
         setSelectedLayout,
         isDarkMode,
         toggleTheme,
+        userData,
+        setUserData,
+        addCertification,
+        removeCertification,
       }}
     >
       {children}

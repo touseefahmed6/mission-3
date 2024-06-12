@@ -10,7 +10,7 @@ import {
 import { LayoutContext } from "../../Context/LayoutContext";
 
 export default function ProfileInfo() {
-  const { isDarkMode } = useContext(LayoutContext);
+  const { userData, isDarkMode } = useContext(LayoutContext);
 
   const infoContainerStyle = {
     backgroundColor: isDarkMode ? "#22303C" : "#f0f0f0",
@@ -28,8 +28,18 @@ export default function ProfileInfo() {
     color: isDarkMode ? "#e0e0e0" : "#333",
   };
 
+  const formatDateString = (dateString) => {
+    if (!dateString) return "";
+
+    const parts = dateString.split("-");
+    if (parts.length !== 3) return dateString;
+
+    const [year, month, day] = parts;
+    return `${month}-${day}-${year}`;
+  };
+
   return (
-    <div className="container-fluid mt-3  " style={infoContainerStyle}>
+    <div className="container-fluid mt-3" style={infoContainerStyle}>
       <h6
         className="text-start mx-3 d-flex align-items-center"
         style={{ letterSpacing: "1px" }}
@@ -55,7 +65,8 @@ export default function ProfileInfo() {
             style={{ fontSize: "1rem" }}
           />
           <span className="text-wrap text-truncate poppins-medium">
-            April 03, 2004
+            {userData.personalDetails &&
+              formatDateString(userData.personalDetails.dob)}
           </span>
         </li>
         <li
@@ -67,7 +78,7 @@ export default function ProfileInfo() {
             style={{ fontSize: "1rem" }}
           />
           <span className="text-wrap text-truncate poppins-medium">
-            Karachi, Pakistan
+            {userData.personalDetails && userData.personalDetails.location}
           </span>
         </li>
         <li
@@ -79,7 +90,7 @@ export default function ProfileInfo() {
             style={{ fontSize: "1rem" }}
           />
           <span className="text-wrap text-truncate poppins-medium">
-            touseef@email.com
+            {userData.personalDetails && userData.personalDetails.email}
           </span>
         </li>
         <li
@@ -91,7 +102,7 @@ export default function ProfileInfo() {
             style={{ fontSize: "1rem" }}
           />
           <span className="text-wrap text-truncate poppins-medium">
-            +92-3173098212
+            {userData.personalDetails && userData.personalDetails.contactNumber}
           </span>
         </li>
         <li
@@ -100,7 +111,7 @@ export default function ProfileInfo() {
         >
           <FaSkype className="text-primary me-3" style={{ fontSize: "1rem" }} />
           <span className="text-wrap text-truncate poppins-medium">
-            @touseef_ahmed
+            {userData.personalDetails && userData.personalDetails.skypeUsername}
           </span>
         </li>
       </ul>

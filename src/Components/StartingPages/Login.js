@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LayoutContext } from "../Context/LayoutContext";
 
-export default function InputFields() {
+export default function Login() {
   const { isDarkMode } = useContext(LayoutContext);
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [count, setCount] = useState(0);
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
@@ -19,10 +19,10 @@ export default function InputFields() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username === "" || password === "") {
+    if (email === "" || password === "") {
       alert("Password or username is missing.");
     } else {
-      navigate("/WelcomePage");
+      navigate("/Navigation");
     }
     setCount(count + 1);
   };
@@ -50,31 +50,50 @@ export default function InputFields() {
   const loginBelowText = {
     color: isDarkMode ? "#e0e0e0" : "#374151",
   };
+  const socialButtonStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#4267B2",
+    color: "#fff",
+    padding: "10px 20px",
+    borderRadius: "5px",
+    marginBottom: "10px",
+    cursor: "pointer",
+  };
+
+  const googleButtonStyle = {
+    ...socialButtonStyle,
+    backgroundColor: "#DB4437",
+  };
 
   return (
     <div className="container d-flex align-items-center justify-content-center min-vh-100">
-      <div className="col-12 col-md-6 p-5 shadow-lg rounded" style={cardStyle}>
+      <div
+        className="col-12 col-md-6 p-5 shadow-lg rounded mt-4 mb-4"
+        style={cardStyle}
+      >
         <h2 className="mb-4 text-center text-primary poppins-bold">Login</h2>
         <p className="text-center poppins-regular" style={loginBelowText}>
-          Please Enter your username and password!
+          Please Enter your email and password!
         </p>
 
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label
-              htmlFor="username"
+              htmlFor="email"
               className="form-label poppins-medium"
               style={formLabelStyle}
             >
-              Username
+              Email
             </label>
             <input
-              id="username"
+              id="email"
               className="form-control"
-              type="text"
-              value={username}
-              placeholder="Enter Username"
-              onChange={(e) => setUsername(e.target.value)}
+              type="email"
+              value={email}
+              placeholder="Enter Email"
+              onChange={(e) => setEmail(e.target.value)}
               style={cardStyle}
             />
           </div>
@@ -117,7 +136,7 @@ export default function InputFields() {
               </label>
             </div>
             <a
-              href="/forgot-password"
+              href="/"
               className="text-primary"
               style={forgotPasswordLinkStyle}
             >
@@ -125,19 +144,40 @@ export default function InputFields() {
             </a>
           </div>
 
-          <button type="submit" className="btn btn-primary w-100 mb-3">
+          <button
+            type="submit"
+            className="btn btn-primary w-100 mb-3 poppins-semibold"
+          >
             Login
           </button>
+          <p className="text-center poppins-medium" style={loginBelowText}>
+            or With
+          </p>
+
+          <div
+            style={socialButtonStyle}
+            onClick={() => alert("Login with Facebook")}
+            className="poppins-semibold"
+          >
+            Login with Facebook
+          </div>
+          <div
+            style={googleButtonStyle}
+            onClick={() => alert("Login with Google")}
+            className="poppins-semibold"
+          >
+            Login with Google
+          </div>
 
           <p className="text-center">
             Don't have an account?{" "}
-            <a
-              href="/create-account"
+            <Link
+              to="/"
               className="text-primary"
               style={createAccountLinkStyle}
             >
               Create account
-            </a>
+            </Link>
           </p>
         </form>
       </div>
